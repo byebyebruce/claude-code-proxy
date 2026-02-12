@@ -1000,17 +1000,10 @@ async def handle_token_count_request(raw_request: Request, base_url: Optional[st
                 200
             )
 
-            token_counter_args = {
-                "model": converted_request["model"],
-                "messages": converted_request["messages"],
-            }
-
-            # Set base URL (from path or environment variable)
-            effective_base_url = base_url or OPENAI_BASE_URL
-            if effective_base_url:
-                token_counter_args["api_base"] = effective_base_url
-
-            token_count = token_counter(**token_counter_args)
+            token_count = token_counter(
+                model=converted_request["model"],
+                messages=converted_request["messages"],
+            )
 
             return TokenCountResponse(input_tokens=token_count)
 

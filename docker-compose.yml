@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  claude-code-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: claude-code-proxy
+    ports:
+      - "8082:8082"
+    #env_file:
+    #  - .env
+    restart: unless-stopped

@@ -36,6 +36,12 @@ A proxy server that lets you use Anthropic clients with OpenAI(Compatible) model
    ```
    *(`--reload` is optional, for development)*
 
+#### From docker
+
+```bash
+docker-compose up -d
+```
+
 ### Usage Examples 🎮
 
 1. **Configure Claude Code**:
