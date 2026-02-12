@@ -903,7 +903,7 @@ async def handle_messages_request(raw_request: Request, base_url: Optional[str] 
                 200
             )
             start_time = time.time()
-            litellm_response = litellm.completion(**litellm_request)
+            litellm_response = await litellm.acompletion(**litellm_request)
             logger.debug(f"RESPONSE RECEIVED: Model={litellm_request.get('model')}, Time={time.time() - start_time:.2f}s")
 
             anthropic_response = convert_litellm_to_anthropic(litellm_response, request)
